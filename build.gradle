@@ -21,7 +21,7 @@ targetCompatibility = JavaVersion.VERSION_17
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-def local_bclib = findProject(':BCLib') != null
+def local_bclib = findProject(':bcLib') != null
 
 repositories {
     maven { url "https://maven.dblsaiko.net/" }
@@ -43,9 +43,9 @@ dependencies {
 	
     println "Using local BCLib: ${local_bclib}"
     if (local_bclib){		
-        implementation( project(path:":BCLib", configuration: 'dev') )
+        implementation( project(path:":bcLib", configuration: 'dev') )
     } else {
-        modImplementation "com.github.paulevsGitch:BCLib:${project.bclib_version}"
+        modImplementation "com.github.paulevsGitch:bcLib:${project.bclib_version}"
     }
 }
 
